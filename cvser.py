@@ -2,26 +2,39 @@ import sys
 import os.path
 import requests
 import pandas
+import re
 
 
 def main():
-    has_arg = len(sys.argv)
-    # check if user provided xlsx
-    has_error = handle_arg_error(has_arg)
+    # check if provided files are valid
+    handle_arg_error(sys.argv)
 
-    # proceed if user provided xlsx
-    if has_error == False:
-        # convert every file provided
-        for xlsx_file in sys.argv[1:]:
-            convert_to_csv(xlsx_file)
+    # iterate through provided files
+    for xlsx_file in sys.argv[1:]:
+        convert_to_csv(xlsx_file)
 
-def handle_arg_error(arg):
-    # user provided no arguments
-    if arg == 1:
-        print("Error: Please provide xlsx file")
-        return True
-    else:
-        return False
+def handle_arg_error(arguments):
+    # check if user provided at least 1 file
+    try:
+        arguments[1]
+    except IndexError:
+        print("Error: Please provide at least one xlsx file")
+        raise Exception("No xlsx provided")
+    
+    # check if arguments are either type file or match a url
+    for arg in arguments[1:]:
+        # regex for url
+        url_pattern = "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$"
+        
+        # check if argument is a file
+        is_file = os.path.isfile(arg)
+        # check if argument matches a url
+        is_url = re.match(url_pattern, arg)
+        
+        # if argument is neither a file nor matches a url raise error
+        if not is_file and is_url is None:
+            print("Error: Please provide a valid xlsx file")
+            raise Exception(f"Wrong file: {arg}") 
     
 def convert_to_csv(xlsx):
     prepared_xlsx = xlsx
