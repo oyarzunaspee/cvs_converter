@@ -12,7 +12,7 @@ def main():
     # proceed if user provided xlsx
     if has_error == False:
         # convert every file provided
-        for argument in range(1, len(sys.argv)):
+        for argument in sys.argv[1:]:
             xlsx = sys.argv[argument]
             convert_to_csv(xlsx)
 
