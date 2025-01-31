@@ -12,9 +12,8 @@ def main():
     # proceed if user provided xlsx
     if has_error == False:
         # convert every file provided
-        for argument in sys.argv[1:]:
-            xlsx = sys.argv[argument]
-            convert_to_csv(xlsx)
+        for xlsx_file in sys.argv[1:]:
+            convert_to_csv(xlsx_file)
 
 def handle_arg_error(arg):
     # user provided no arguments
