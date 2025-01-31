@@ -9,21 +9,18 @@ def main():
     # check if user provided xlsx
     has_error = handle_arg_error(has_arg)
 
-    # proceed if user provided xlxx
+    # proceed if user provided xlsx
     if has_error == False:
-        xlsx = sys.argv[1]
-        convert_to_csv(xlsx)
+        # convert every file provided
+        for argument in range(1, len(sys.argv)):
+            xlsx = sys.argv[argument]
+            convert_to_csv(xlsx)
 
 def handle_arg_error(arg):
     # user provided no arguments
     if arg == 1:
         print("Error: Please provide xlsx file")
         return True
-    # user provided more than one argument
-    elif arg > 2:
-        print("Error: Please provide one file only")
-        return True
-    # user provided one argument
     else:
         return False
     
