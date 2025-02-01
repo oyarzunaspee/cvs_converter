@@ -5,7 +5,7 @@
 A script that converts a .xlsx into a .csv file
 _________________
 
-##### How to use:
+#### How to use:
 
 * Run the cvser.py script with the path of the .xlsx file you want to convert
 
@@ -25,6 +25,6 @@ _________________
 
 ____
 
-##### License
+#### License
 
 MIT License
