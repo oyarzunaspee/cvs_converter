@@ -1,11 +1,11 @@
 # CVSer
 
+###### Works with a file location and a link !
+
 A script that converts a .xlsx into a .csv file
 _________________
 
-###### Works with a file location and a link !
-
-How to use:
+##### How to use:
 
 * Run the cvser.py script with the path of the .xlsx file you want to convert
 
