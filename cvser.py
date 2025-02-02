@@ -49,7 +49,7 @@ def convert_to_csv(xlsx):
     excel_file = pandas.read_excel(prepared_xlsx)
     # ask user for new name for csv file
     new_name = input("Name new CVS file: ")
-    cvs_name = f"{new_name}.cvs"
+    cvs_name = f"output/{new_name}.cvs"
     # create output csv file
     excel_file.to_csv(cvs_name, index = None, header=True)
 
