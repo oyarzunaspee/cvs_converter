@@ -2,7 +2,7 @@
 
 ###### Works with link and path !
 
-A script that converts a .xlsx into a .csv file
+A script that converts a .xlsx into a .cvs file
 _________________
 
 #### How to use:
@@ -13,7 +13,7 @@ _________________
 
 * Run the container
 
-`docker run -it -v ${PWD}/output:/output csver + [link or path to .xlsx file]`
+`docker run -it -v ${PWD}/output:/output cvser + [link or path to .xlsx file]`
 
 * You can provide a link
 
