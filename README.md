@@ -1,27 +1,31 @@
 # CVSer
 
-###### Works with a file location and a link !
+###### Works with link and path !
 
 A script that converts a .xlsx into a .csv file
 _________________
 
 #### How to use:
 
-* Run the cvser.py script with the path of the .xlsx file you want to convert
+* Build container
 
-` python3 cvser.py ./user/my_folder/my_file.xlsx `
+`docker build -t cvser .`
 
-* You can also provide a url
+* Run the container
 
-` python3 cvser.py https://www.myurl.com `
+`docker run -it -v ${PWD}/output:/output csver + [link or path to .xlsx file]`
 
-* You can also provide multiple arguments separated by a space, and combine both path and url
+* You can provide a link
 
-` python3 cvser.py ./user/my_folder/my_file.xlsx https://www.myurl.com `
+`https://www.myurl.com/GET/xlsx`
 
-* You will be asked to name the new .cvs file or files
+* Or a path
 
-* And it's done! You'll find the new .cvs files in the directory from where the script was executed
+`/User/Folder/my_file.xlsx`
+
+* You will be asked to name each file
+
+* And it's done! You'll find the new .cvs file or files inside /output
 
 ____
 
